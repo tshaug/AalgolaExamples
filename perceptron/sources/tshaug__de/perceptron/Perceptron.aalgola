@@ -36,7 +36,7 @@ object Perceptron ⁌
 		training_inputs :← dataGenerator.irisTrainingData()	
 		labels :← dataGenerator.irisTrainingLabels()
 		
-		debugWriteLine("Start Training…")
+		debugWriteLine("Start…")
 		perceptron :← PerceptronAlgo(0.1)
 		weights :← FeatureVector4D(0.0, 0.0, 0.0, 0.0)
 		debugWriteLine("Start training!")

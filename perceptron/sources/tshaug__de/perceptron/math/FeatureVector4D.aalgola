@@ -3,91 +3,90 @@ namespace aalgola://tshaug.de/perceptron/math/
 
 ⟦public⟧
 object FeatureVector4D ⁌
-	Beschreibt einen vier dimensionalen Feature-Vektor, z.B:
-	Feature-Vektor in Bezug auf Iris-Daten, die vier numerischen Merkmale:
-     feature1 = Sepal Length (Kelchblatt-Länge)
-	feature2 = Sepal Width (Kelchblatt-Breite)
-	feature3 = Petal Length (Blütenblatt-Länge)
-	feature4 = Petal Width (Blütenblatt-Breite)
+	four dimensional feature vector,e.g Iris data set:
+	feature1 (f1) = Sepal Length 
+	feature2 (f2) = Sepal Width
+	feature3 (f3) = Petal Length
+	feature4 (f4) = Petal Width
 ⁍ is
 
 	
 	⟦public⟧
 	⟦final⟧
-	x : 𝔽₆₄
+	f1 : 𝔽₆₄
 
 	⟦public⟧
 	⟦final⟧
-	y : 𝔽₆₄
+	f2 : 𝔽₆₄
 
 	⟦public⟧
 	⟦final⟧
-	z : 𝔽₆₄
+	f3 : 𝔽₆₄
 
 	⟦public⟧
 	⟦final⟧
-	d : 𝔽₆₄
+	f4 : 𝔽₆₄
 	
 	⟦public⟧
-	init (x : 𝔽₆₄, y : 𝔽₆₄, z : 𝔽₆₄, d : 𝔽₆₄) is
-		self.x ← x
-		self.y ← y
-		self.z ← z
-		self.d ← d
+	init (f1 : 𝔽₆₄, f2 : 𝔽₆₄, f3 : 𝔽₆₄, f4 : 𝔽₆₄) is
+		self.f1 ← f1
+		self.f2 ← f2
+		self.f3 ← f3
+		self.f4 ← f4
 	end
 
 	⟦public⟧
 	function . + . : (a⃗ : FeatureVector4D, b⃗ : FeatureVector4D) → FeatureVector4D is
 		return FeatureVector4D(
-			a⃗.x + b⃗.x,
-			a⃗.y + b⃗.y,
-			a⃗.z + b⃗.z,
-			a⃗.d + b⃗.d
+			a⃗.f1 + b⃗.f1,
+			a⃗.f2 + b⃗.f2,
+			a⃗.f3 + b⃗.f3,
+			a⃗.f4 + b⃗.f4
 		)
 	end
 
 	⟦public⟧
 	function . − . : (a⃗ : FeatureVector4D, b⃗ : FeatureVector4D) → FeatureVector4D is
 		return FeatureVector4D(
-			a⃗.x − b⃗.x,
-			a⃗.y − b⃗.y,
-			a⃗.z − b⃗.z,
-			a⃗.d − b⃗.d
+			a⃗.f1 − b⃗.f1,
+			a⃗.f2 − b⃗.f2,
+			a⃗.f3 − b⃗.f3,
+			a⃗.f4 − b⃗.f4
 		)
 	end
 
 	⟦public⟧
 	function −. : (a⃗ : FeatureVector4D) → FeatureVector4D is
 		return FeatureVector4D(
-			−a⃗.x,
-			−a⃗.y,
-			−a⃗.z,
-			−a⃗.d
+			−a⃗.f1,
+			−a⃗.f2,
+			−a⃗.f3,
+			−a⃗.f4
 		)
 	end
 
 	⟦public⟧
 	function . ⋅ . : (a⃗ : FeatureVector4D, b⃗ : FeatureVector4D) → 𝔽₆₄ is
-		return a⃗.x ⋅ b⃗.x + a⃗.y ⋅ b⃗.y + a⃗.z ⋅ b⃗.z + a⃗.d ⋅ b⃗.d
+		return a⃗.f1 ⋅ b⃗.f1 + a⃗.f2 ⋅ b⃗.f2 + a⃗.f3 ⋅ b⃗.f3 + a⃗.f4 ⋅ b⃗.f4
 	end
 	
 	⟦public⟧
 	function . ⋅ . : (a⃗ : FeatureVector4D, s : 𝔽₆₄) → FeatureVector4D is
 		return FeatureVector4D(
-			s ⋅ a⃗.x,
-			s ⋅ a⃗.y,
-			s ⋅ a⃗.z,
-			s ⋅ a⃗.d
+			s ⋅ a⃗.f1,
+			s ⋅ a⃗.f2,
+			s ⋅ a⃗.f3,
+			s ⋅ a⃗.f4
 		)
 	end
 
 	⟦public⟧
 	function . ⋅ . : (s : 𝔽₆₄, a⃗ : FeatureVector4D) → FeatureVector4D is
 		return FeatureVector4D(
-			s ⋅ a⃗.x,
-			s ⋅ a⃗.y,
-			s ⋅ a⃗.z,
-			s ⋅ a⃗.d
+			s ⋅ a⃗.f1,
+			s ⋅ a⃗.f2,
+			s ⋅ a⃗.f3,
+			s ⋅ a⃗.f4
 		)
 	end
 end object
