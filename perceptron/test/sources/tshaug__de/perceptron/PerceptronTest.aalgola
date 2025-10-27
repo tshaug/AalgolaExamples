@@ -1,0 +1,9 @@
+namespace //tshaug.de/perceptron/
+
+test PerceptronTest is
+
+	test “Prüft die Funktionstüchtigkeit von Tests” is
+		assert 1 ≠ 2
+	end
+
+end

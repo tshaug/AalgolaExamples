@@ -1,0 +1,104 @@
+namespace aalgola://tshaug.de/perceptron/algorithm/
+
+import //tshaug.de/perceptron/math/FeatureVector4D    
+import //aalgola.org/core/collection/cdt/array/Array
+
+⟦public⟧
+object PerceptronAlgo ⁌
+	This class implemented the Perceptron algorithm 
+	Since 􊨖lgola is still in development some parts of the code is not structured as I would like it, 
+	eg hardcorded test data, using 𝔽₆₄ instead of ℕ₃₂ is some places 
+⁍is
+
+	learningRate : 𝔽₆₄
+	bias : 𝔽₆₄
+	
+	⟦public⟧
+    weights : FeatureVector4D
+
+    ⟦public⟧
+	init (learningRate : 𝔽₆₄)  is
+		self.learningRate ← learningRate 
+        self.weights ← FeatureVector4D(0.0, 0.0, 0.0, 0.0)
+		debugWriteLine("init Perceptron")
+    end
+	
+	method activate(value : 𝔽₆₄) → 𝔽₆₄ is
+		output :  𝔽₆₄ ← 0.0
+		if value ≥ 0.0 then 
+			output ← 1.0
+		end
+		return output
+	end
+	
+	method predict(input : FeatureVector4D) → 𝔽₆₄ is
+		sum : 𝔽₆₄ ← weights ⋅ input + bias
+		return activate(sum)
+	end
+	
+	method train(training_inputs : Array⟦FeatureVector4D⟧, labels : MemorySegment⟦𝔽₆₄⟧, elementCount : ℕ₃₂, epochs : ℕ₆₄) → () is
+		for epoch ∈ ⟨1, …, epochs⟩ do
+			errors : ℕ₃₂ ← 0
+			for i ∈ ⟨1, …, elementCount⟩ do
+				input : FeatureVector4D ← training_inputs[i]
+				label :← labels[i]
+				
+				¶showInputAndLabel(input, label, epoch)  
+				
+				prediction : 𝔽₆₄ ← self.predict(input)
+				error :← label − prediction
+				if error ≠ 0.0 then
+					self.weights ← self.weights + input ⋅ (self.learningRate ⋅ error)
+					self.bias ← self.bias + self.learningRate ⋅ error
+					errors ← errors + 1
+				end
+			 end
+			
+			¶showBiasLearningRateAndWightsOfEpoch(epoch, bias, learningRate,weights)
+			
+		end
+	end
+	
+	method showBiasLearningRateAndWightsOfEpoch (epoch : ℕ₆₄, errors : 𝔽₆₄, bias : 𝔽₆₄, learningRate : 𝔽₆₄, weights  : FeatureVector4D) → () is
+		debugWrite("Epoch ")
+		debugWrite(epoch)
+		debugWrite(": Fehler =")
+		debugWriteLine(errors)
+		
+		debugWrite("Epoch ")
+		debugWrite(epoch)
+		debugWrite(": Bias =")
+		debugWriteLine(bias)
+			
+		debugWrite("Epoch ")
+		debugWrite(epoch)
+		debugWrite(": LearningRate = ")
+		debugWriteLine(learningRate)		
+		
+		debugWrite("Epoch ")
+		debugWrite(epoch)
+		debugWrite(": Weights = ")
+		debugWrite(weights.x)
+		debugWrite(", ")
+		debugWrite(weights.y)
+		debugWrite(", ")
+		debugWrite(weights.z)
+		debugWrite(", ")
+		debugWriteLine(weights.d)
+	end
+		
+	method showInputAndLabel(input  : FeatureVector4D, label : 𝔽₆₄,epoch : ℕ₆₄)  → () is
+		debugWrite("Epoch ")
+			debugWrite(epoch)
+			debugWrite(": input = ")
+			debugWrite(input.x)
+			debugWrite(", ")
+			debugWrite(input.y)
+			debugWrite(", ")
+			debugWrite(input.z)
+			debugWrite(", ")
+			debugWrite(input.d)
+			debugWrite("     type =  ")
+			debugWriteLine(label)		
+	end
+end object	

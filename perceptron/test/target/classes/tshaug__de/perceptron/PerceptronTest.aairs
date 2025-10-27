@@ -1,0 +1,37 @@
+𝐧𝐚𝐦𝐞𝐬𝐩𝐚𝐜𝐞 aalgola://tshaug.de/perceptron/
+
+𝐨𝐛𝐣𝐞𝐜𝐭 PerceptronTest 𝐢𝐬
+
+    test  “Prüft die Funktionstüchtigkeit von Tests”() → ()
+    				¶ »Line Number 6«
+        r1₍ᵦ₎ ← loadTrue()
+        gotoIfTrue⟦𝕄ᵦ⟧(L1, r1₍ᵦ₎)
+        r2₍ᵣ₎ ← new(aalgola://aalgola.org/core/exception/programming/AssertionFailed)
+        push⟦𝕄ᵣ⟧(r2₍ᵣ₎)
+        invokeInit(aalgola://aalgola.org/core/exception/programming/AssertionFailed.__init__ : “()℧;” : false, 1)
+        throw(r2₍ᵣ₎)
+    L1:
+        return(0)
+    end test 
+
+    routine __create__() → PerceptronTest
+        r0₍ᵣ₎ ← new(aalgola://tshaug.de/perceptron/PerceptronTest)
+        push⟦𝕄ᵣ⟧(r0₍ᵣ₎)
+        invokeInit(aalgola://tshaug.de/perceptron/PerceptronTest.__init__ : “()℧;” : false, 1)
+        rpush⟦𝕄ᵣ⟧(r0₍ᵣ₎)
+        return(1)
+    end routine
+
+    constructor __init__() → ()
+        push⟦𝕄ᵣ⟧(r0₍ᵣ₎)
+        invokeInit(aalgola://aalgola.org/core/object/Object.__init__ : “()℧;” : false, 1)
+    				¶ »Line Number 1«
+        return(0)
+    end constructor
+
+    routine __class_init__() → ()
+        return(0)
+    end routine
+
+
+𝐞𝐧𝐝 𝐨𝐛𝐣𝐞𝐜𝐭 PerceptronTest

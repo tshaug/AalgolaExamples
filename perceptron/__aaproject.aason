@@ -1,0 +1,10 @@
+
+AalgolaProjectInformation(
+	“perceptron”,
+	“AALGOLA”,
+	“//tshaug.de/perceptron/”,
+	“Perceptron”,
+	description: “Simple implementation of the Perceptron in Aalgola”,
+	main_class: “//tshaug.de/perceptron/Perceptron”,
+	type: AALGOLA
+)

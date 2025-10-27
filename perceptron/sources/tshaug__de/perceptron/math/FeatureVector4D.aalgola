@@ -1,0 +1,93 @@
+namespace aalgola://tshaug.de/perceptron/math/
+
+
+⟦public⟧
+object FeatureVector4D ⁌
+	Beschreibt einen vier dimensionalen Feature-Vektor, z.B:
+	Feature-Vektor in Bezug auf Iris-Daten, die vier numerischen Merkmale:
+     feature1 = Sepal Length (Kelchblatt-Länge)
+	feature2 = Sepal Width (Kelchblatt-Breite)
+	feature3 = Petal Length (Blütenblatt-Länge)
+	feature4 = Petal Width (Blütenblatt-Breite)
+⁍ is
+
+	
+	⟦public⟧
+	⟦final⟧
+	x : 𝔽₆₄
+
+	⟦public⟧
+	⟦final⟧
+	y : 𝔽₆₄
+
+	⟦public⟧
+	⟦final⟧
+	z : 𝔽₆₄
+
+	⟦public⟧
+	⟦final⟧
+	d : 𝔽₆₄
+	
+	⟦public⟧
+	init (x : 𝔽₆₄, y : 𝔽₆₄, z : 𝔽₆₄, d : 𝔽₆₄) is
+		self.x ← x
+		self.y ← y
+		self.z ← z
+		self.d ← d
+	end
+
+	⟦public⟧
+	function . + . : (a⃗ : FeatureVector4D, b⃗ : FeatureVector4D) → FeatureVector4D is
+		return FeatureVector4D(
+			a⃗.x + b⃗.x,
+			a⃗.y + b⃗.y,
+			a⃗.z + b⃗.z,
+			a⃗.d + b⃗.d
+		)
+	end
+
+	⟦public⟧
+	function . − . : (a⃗ : FeatureVector4D, b⃗ : FeatureVector4D) → FeatureVector4D is
+		return FeatureVector4D(
+			a⃗.x − b⃗.x,
+			a⃗.y − b⃗.y,
+			a⃗.z − b⃗.z,
+			a⃗.d − b⃗.d
+		)
+	end
+
+	⟦public⟧
+	function −. : (a⃗ : FeatureVector4D) → FeatureVector4D is
+		return FeatureVector4D(
+			−a⃗.x,
+			−a⃗.y,
+			−a⃗.z,
+			−a⃗.d
+		)
+	end
+
+	⟦public⟧
+	function . ⋅ . : (a⃗ : FeatureVector4D, b⃗ : FeatureVector4D) → 𝔽₆₄ is
+		return a⃗.x ⋅ b⃗.x + a⃗.y ⋅ b⃗.y + a⃗.z ⋅ b⃗.z + a⃗.d ⋅ b⃗.d
+	end
+	
+	⟦public⟧
+	function . ⋅ . : (a⃗ : FeatureVector4D, s : 𝔽₆₄) → FeatureVector4D is
+		return FeatureVector4D(
+			s ⋅ a⃗.x,
+			s ⋅ a⃗.y,
+			s ⋅ a⃗.z,
+			s ⋅ a⃗.d
+		)
+	end
+
+	⟦public⟧
+	function . ⋅ . : (s : 𝔽₆₄, a⃗ : FeatureVector4D) → FeatureVector4D is
+		return FeatureVector4D(
+			s ⋅ a⃗.x,
+			s ⋅ a⃗.y,
+			s ⋅ a⃗.z,
+			s ⋅ a⃗.d
+		)
+	end
+end object
