@@ -19,11 +19,9 @@ object Perceptron ⁌
 	method run() → () ⁌
 		Hey ho, let's go
 	 ⁍ is
-		 epochs :← 10
+		 epochs :← 3
 		 runPerceptron(0.1, epochs) 
-		 debugWriteLine("AI mit 􊨖lgola abgeschlossen 2")
-		 
-		¶Console.WriteLine("test mit der Java Console")
+		 debugWriteLine("AI with 􊨖lgola (Aalgola) finished")
 		 
 	end method
 	
@@ -39,11 +37,9 @@ object Perceptron ⁌
 		weights :← FeatureVector4D(0.0, 0.0, 0.0, 0.0)
 		debugWriteLine("Start training!")
 		¶ at the mopment it is not possible to get the element count in a way so that we can use it…
-		perceptron.train(training_inputs, labels, 80, 4)
+		perceptron.train(training_inputs, labels, 80, epochs)
 		
-		debugWriteLine("Training finished!")
-		
-		
+		debugWriteLine("Training finished!")	
 		
 		test1 : 𝔽₆₄ ← perceptron.predict(FeatureVector4D(5.1, 3.5, 1.4, 0.2))
 		debugWrite("Iris setosa Test  (expected 0.0): ")
@@ -58,12 +54,14 @@ object Perceptron ⁌
 		testInputs :← dataGenerator.irisTestData()
 		testLabels :← dataGenerator.irisTestLabels()
 		
-		
-		
+		¶ check test flowers
+		debugWriteLine("Checking Test data:")
 		for i ∈ ⟨1, …, 20⟩ do
 			testInput : FeatureVector4D ← testInputs[i]
 			testLabel :← testLabels[i]
-			
+			debugWrite("Expected  = ")
+			debugWrite(testLabel)
+			debugWrite(",    Result  = ")
 			debugWriteLine(perceptron.predict(testInput))	
 		end
 end
