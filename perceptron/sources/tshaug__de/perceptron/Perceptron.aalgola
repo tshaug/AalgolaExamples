@@ -13,6 +13,10 @@ object Perceptron ⁌
 	This is a simple program to demonstrate the Perceptron implementation in 􊨖lgola
 	Since 􊨖lgola is still in development some parts of the code is not structured as I would like it, 
 	eg hardcorded test data, using 𝔽₆₄ instead of ℕ₃₂ is some places 
+	
+	It uses the parts of the Iris flower data set for classification using the Perceptron 
+	https://en.wikipedia.org/wiki/Perceptron
+	https://en.wikipedia.org/wiki/Iris_flower_data_set
 ⁍ is
 
 	⟦override⟧
